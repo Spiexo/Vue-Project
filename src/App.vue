@@ -5,28 +5,51 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-
     <div class="wrapper">
-
       <nav>
         <RouterLink to="/">Exercice pratique complet</RouterLink>
         <RouterLink to="/about">Exercice d'entrainement</RouterLink>
+        <RouterLink :to="{ name: 'user', params: { id: 1 } }">User</RouterLink>
+        <RouterLink to="/contact">Contact</RouterLink>
+        <RouterLink to="/todo-list">Todo List</RouterLink>
+        <RouterLink to="/call-api">Call API</RouterLink>
       </nav>
     </div>
   </header>
 
-  <RouterView />
+  <main class="content">
+    <RouterView />
+  </main>
 </template>
+
 
 <style scoped>
   /* #app {
     grid
   } */
 
-header {
+/* header {
   line-height: 1.5;
   height: 10%;
+} */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+
+  background-color: white;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
 }
+
+.content {
+  margin-top: 80px; /* hauteur du header + marge */
+}
+
 
 nav {
   width: 100%;
